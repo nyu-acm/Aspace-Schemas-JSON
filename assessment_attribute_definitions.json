@@ -1,0 +1,90 @@
+{
+	"$schema": "http://www.archivesspace.org/archivesspace.json",
+	"version": 1,
+	"type": "object",
+	"uri": "/repositories/:repo_id/assessment_attribute_definitions",
+	"properties": {
+		"definitions": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "integer"
+					},
+					"label": {
+						"type": "string",
+						"ifmissing": "error"
+					},
+					"type": {
+						"enum": [
+							"rating",
+							"format",
+							"conservation_issue"
+						],
+						"ifmissing": "error"
+					},
+					"global": {
+						"type": "boolean",
+						"default": false
+					},
+					"readonly": {
+						"type": "boolean",
+						"default": false
+					},
+					"position": {
+						"type": "integer",
+						"readonly": "true"
+					}
+				}
+			}
+		},
+		"lock_version": {
+			"type": [
+				"integer",
+				"string"
+			],
+			"required": false
+		},
+		"jsonmodel_type": {
+			"type": "string",
+			"ifmissing": "error"
+		},
+		"created_by": {
+			"type": "string",
+			"readonly": true
+		},
+		"last_modified_by": {
+			"type": "string",
+			"readonly": true
+		},
+		"user_mtime": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"system_mtime": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"create_time": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"repository": {
+			"type": "object",
+			"subtype": "ref",
+			"readonly": "true",
+			"properties": {
+				"ref": {
+					"type": "JSONModel(:repository) uri",
+					"ifmissing": "error",
+					"readonly": "true"
+				},
+				"_resolved": {
+					"type": "object",
+					"readonly": "true"
+				}
+			}
+		}
+	}
+}

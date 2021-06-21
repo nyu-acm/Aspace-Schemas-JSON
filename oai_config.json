@@ -1,0 +1,85 @@
+{
+	"$schema": "http://www.archivesspace.org/archivesspace.json",
+	"version": 1,
+	"type": "object",
+	"uri": "/oai_config",
+	"properties": {
+		"oai_record_prefix": {
+			"type": "string",
+			"required": true
+		},
+		"oai_admin_email": {
+			"type": "string",
+			"required": true
+		},
+		"oai_repository_name": {
+			"type": "string",
+			"required": true
+		},
+		"repo_set_codes": {
+			"type": "string"
+		},
+		"sponsor_set_names": {
+			"type": "string"
+		},
+		"repo_set_description": {
+			"type": "string"
+		},
+		"sponsor_set_description": {
+			"type": "string"
+		},
+		"repo_set_name": {
+			"type": "string"
+		},
+		"sponsor_set_name": {
+			"type": "string"
+		},
+		"lock_version": {
+			"type": [
+				"integer",
+				"string"
+			],
+			"required": false
+		},
+		"jsonmodel_type": {
+			"type": "string",
+			"ifmissing": "error"
+		},
+		"created_by": {
+			"type": "string",
+			"readonly": true
+		},
+		"last_modified_by": {
+			"type": "string",
+			"readonly": true
+		},
+		"user_mtime": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"system_mtime": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"create_time": {
+			"type": "date-time",
+			"readonly": true
+		},
+		"repository": {
+			"type": "object",
+			"subtype": "ref",
+			"readonly": "true",
+			"properties": {
+				"ref": {
+					"type": "JSONModel(:repository) uri",
+					"ifmissing": "error",
+					"readonly": "true"
+				},
+				"_resolved": {
+					"type": "object",
+					"readonly": "true"
+				}
+			}
+		}
+	}
+}
